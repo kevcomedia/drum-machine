@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DrumPad from './DrumPad';
 import audioMap from './audioMap';
 
@@ -15,10 +16,15 @@ function DrumPads(props) {
           label={label}
           audioSrc={audioMap[label][0]}
           audioName={audioMap[label][1]}
+          onActivate={props.onActivate}
         />
       ))}
     </div>
   );
+}
+
+DrumPads.propTypes = {
+  onActivate: PropTypes.func,
 }
 
 export default DrumPads;

@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 function DrumPad(props) {
   const audioRef = createRef();
 
-  const activate = () => {
+  const handleActivate = () => {
     playAudio(audioRef.current);
+    props.onActivate(props.audioName);
   };
 
-  useKeyDown(props.label, activate);
+  useKeyDown(props.label, handleActivate);
 
   return (
     <>
-      <button className="drum-pad" onClick={activate}>
+      <button className="drum-pad" onClick={handleActivate}>
         {props.label}
       </button>
       <audio
