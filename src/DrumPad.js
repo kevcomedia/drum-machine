@@ -20,6 +20,7 @@ function DrumPad(props) {
 DrumPad.propTypes = {
   label: PropTypes.string.isRequired,
   audioSrc: PropTypes.string.isRequired,
+  audioName: PropTypes.string.isRequired,
 };
 
 export default DrumPad;
