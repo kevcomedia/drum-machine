@@ -19,7 +19,8 @@
   background: #abcd6d;
 }
 
-.drum-pad:active {
+.drum-pad:active,
+.drum-pad_active {
   background: #f18f01;
   box-shadow: none;
   transform: translate3d(0, 0.75rem, 0);

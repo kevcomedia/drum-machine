@@ -1,20 +1,25 @@
-import React, { useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import './DrumPad.css';
 
 function DrumPad(props) {
+  const [isActive, setIsActive] = useIsActive();
   const audioRef = createRef();
 
   const handleActivate = () => {
     playAudio(audioRef.current);
     props.onActivate(props.audioName);
+    setIsActive(true);
   };
 
   useKeyDown(props.label, handleActivate);
 
   return (
     <>
-      <button className="drum-pad" onClick={handleActivate}>
+      <button
+        className={isActive ? 'drum-pad drum-pad_active' : 'drum-pad'}
+        onClick={handleActivate}
+      >
         {props.label}
       </button>
       <audio
@@ -36,6 +41,19 @@ DrumPad.propTypes = {
 function playAudio(audioElem) {
   audioElem.currentTime = 0;
   audioElem.play();
+}
+
+function useIsActive() {
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setIsActive(false);
+    }, 100);
+    return () => clearTimeout(id);
+  }, [isActive]);
+
+  return [isActive, setIsActive];
 }
 
 function useKeyDown(key, callback) {
