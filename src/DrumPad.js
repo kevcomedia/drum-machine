@@ -1,10 +1,10 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './DrumPad.css';
 
 function DrumPad(props) {
   const [isActive, setIsActive] = useIsActive();
-  const audioRef = createRef();
+  const audioRef = useRef(null);
 
   const handleActivate = () => {
     playAudio(audioRef.current);
