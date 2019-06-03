@@ -1,5 +1,6 @@
 import React, { useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
+import './DrumPad.css';
 
 function DrumPad(props) {
   const audioRef = createRef();

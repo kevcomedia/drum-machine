@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DrumPad from './DrumPad';
 import audioMap from './audioMap';
+import './DrumPads.css';
 
 // This ordering of the labels is important, so I'm hardcoding this array
 // instead of using `Object.keys` on `audioMap`.

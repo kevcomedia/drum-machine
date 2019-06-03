@@ -1,0 +1,26 @@
+.drum-pad {
+  align-items: center;
+  background: #99c24d;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.75rem #708e39;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  height: 2em;
+  justify-content: center;
+  padding: 1.5em;
+  width: 2em;
+}
+
+.drum-pad:hover {
+  background: #abcd6d;
+}
+
+.drum-pad:active {
+  background: #f18f01;
+  box-shadow: none;
+  transform: translate3d(0, 0.75rem, 0);
+}
